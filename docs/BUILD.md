@@ -62,17 +62,36 @@ npm run build:release
 
 Результаты находятся в src-tauri/target/release/bundle/appimage/ и deb/.
 GStreamer включается в AppImage средствами Tauri. Состав DEB проверяется
-по metadata и зависимостям перед выпуском.
+по metadata и зависимостям перед выпуском. Готовые пакеты 0.1.1 собраны на
+Ubuntu 26.04; совместимость с другими версиями ОС не подтверждена.
+
+Перед публичной сборкой удаляйте личные пути из строк компилятора:
+
+```bash
+export CARGO_ENCODED_RUSTFLAGS="--remap-path-prefix=$HOME=/build"
+export CFLAGS="-ffile-prefix-map=$HOME=/build"
+export CXXFLAGS="$CFLAGS"
+```
+
+Для релиза 0.1.1 выбраны GStreamer core/base/good и плагины OpenH264 и
+videoparsersbad. Переменная `GSTREAMER_PLUGINS_DIR` указывает на каталог
+только с выбранными `.so`; Tauri копирует всё его содержимое.
+Тексты лицензий и перечень системных пакетов включаются через
+`bundle.linux.appimage.files` и `bundle.linux.deb.files`. Точный состав,
+исходные архивы зависимостей и инструкции их сборки находятся в архиве
+сторонних исходников релиза.
 
 ## Подготовка файлов релиза
 
 ```bash
 python3 tools/stage-release.py \
   --bundle-dir src-tauri/target/release/bundle \
+  --sources RADMIR-Standalone-0.1.1-third-party-sources.tar.gz \
   --output release-assets
 ```
 
-Скрипт собирает AppImage, DEB и SHA256SUMS из результатов сборки.
+Скрипт собирает AppImage, DEB, исходники зависимостей и SHA256SUMS из
+результатов сборки. `--sources` можно опустить для локальной проверки.
 Выпуск на GitHub выполняется владельцем после проверки файлов.
 CI проверяет исходники и не публикует релизы автоматически.
 

@@ -14,6 +14,14 @@ Rust/Tauri, SQLite и другие библиотеки используются
 проверяются для каждого релиза; список исходных зависимостей не заменяет
 проверку готового пакета.
 
+Готовые пакеты содержат тексты лицензий в
+`usr/share/doc/radmir-standalone/licenses` (внутри AppImage) или
+`/usr/share/doc/radmir-standalone/licenses` (DEB).
+С релизом публикуется архив `third-party-sources.tar.gz`: исходные Cargo
+crates и Ubuntu source packages соответствующих версий, контрольные суммы
+и инструкции сборки. Для запуска приложения скачивать этот архив не нужно.
+Исходники самого лаунчера доступны по тегу релиза в этом репозитории.
+
 ## Загружаемая среда
 
 - [PortProton / PortWINE](https://github.com/Castro-Fidel/PortWINE).

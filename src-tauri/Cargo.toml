@@ -3,6 +3,9 @@ name = "radmir-standalone"
 version = "0.1.1"
 description = "Clean-room standalone RADMIR launcher for Linux"
 license = "Apache-2.0"
+authors = ["Lorodn4x <130518306+Lorodn4x@users.noreply.github.com>"]
+repository = "https://github.com/Lorodn4x/radmir-launcher-linux"
+homepage = "https://github.com/Lorodn4x/radmir-launcher-linux"
 edition = "2021"
 rust-version = "1.82"
 
