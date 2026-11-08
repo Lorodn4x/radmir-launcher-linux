@@ -1,0 +1,51 @@
+# Dependencies and generated output
+node_modules/
+src-tauri/target/
+src-tauri/gen/
+dist/
+release-assets/
+__pycache__/
+*.py[cod]
+*.AppImage
+*.deb
+*.exe
+*.dll
+*.zip
+*.tar
+*.tar.gz
+*.tar.xz
+
+# Runtime data and private configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.sqlite*
+*.db
+*.db-*
+*.log
+PortProton/
+prefixes/
+wine/
+game/
+cache/
+
+# Private working material
+research/
+evidence/
+screens/
+screenshots/
+clone-screens/
+QA*.md
+bugs.md
+test-plan.md
+build-log.md
+PROJECT-STATUS.md
+parity.md
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/

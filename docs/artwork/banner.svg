@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="384" viewBox="0 0 1280 384" role="img" aria-labelledby="title description">
+  <title id="title">RADMIR Linux</title>
+  <desc id="description">Независимый лаунчер. Установка, обновления и игра в одном окне.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2=".7"><stop stop-color="#10141d"/><stop offset="1" stop-color="#080b10"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#ffb52e" stop-opacity=".17"/><stop offset="1" stop-color="#ffb52e" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gold" x2="1" y2="1"><stop stop-color="#ffd477"/><stop offset="1" stop-color="#f29a15"/></linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0v38" fill="none" stroke="#b8c3d9" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="1280" height="384" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="384" rx="24" fill="url(#grid)"/>
+  <ellipse cx="1030" cy="192" rx="310" ry="260" fill="url(#glow)"/>
+  <rect x="52" y="43" width="186" height="27" rx="13.5" fill="#ffb52e" fill-opacity=".1" stroke="#ffb52e" stroke-opacity=".3"/>
+  <circle cx="69" cy="56.5" r="3.5" fill="#ffb52e"/>
+  <text x="82" y="61" fill="#f7c46a" font-family="DejaVu Sans,Arial,sans-serif" font-size="11" letter-spacing="2">LINUX LAUNCHER</text>
+  <text x="50" y="157" fill="#f6f7fb" font-family="DejaVu Sans,Arial,sans-serif" font-size="82" font-weight="700" letter-spacing="-3">RADMIR</text>
+  <text x="54" y="222" fill="url(#gold)" font-family="DejaVu Sans,Arial,sans-serif" font-size="51" font-weight="700" letter-spacing="-1">на Linux</text>
+  <text x="56" y="268" fill="#aeb8ca" font-family="DejaVu Sans,Arial,sans-serif" font-size="21">Установка. Обновления. Игра.</text>
+  <path d="M56 305h620" stroke="#c1ccdf" stroke-opacity=".12"/>
+  <g font-family="DejaVu Sans,Arial,sans-serif" font-size="12" fill="#ccd4e2">
+    <text x="56" y="334">PORTPROTON</text><circle cx="167" cy="330" r="2" fill="#ffb52e"/>
+    <text x="185" y="334">WINE / PROTON</text><circle cx="310" cy="330" r="2" fill="#ffb52e"/>
+    <text x="328" y="334">DXVK / VKD3D</text>
+  </g>
+  <g transform="translate(1010 187)">
+    <circle r="145" fill="none" stroke="#bac7df" stroke-opacity=".07"/>
+    <circle r="118" fill="none" stroke="#ffb52e" stroke-opacity=".16" stroke-dasharray="4 11"/>
+    <circle r="86" fill="#0d1118" stroke="#ffb52e" stroke-opacity=".28"/>
+    <path d="M-45-121a129 129 0 0 1 174 111" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M47 121a129 129 0 0 1-176-111" fill="none" stroke="#ffb52e" stroke-opacity=".24" stroke-width="3" stroke-linecap="round"/>
+    <path d="m-20-39 64 39-64 39z" fill="url(#gold)"/>
+    <circle cx="-137" cy="-6" r="5" fill="#ffb52e"/>
+    <circle cx="109" cy="86" r="4" fill="#7a8da9"/>
+  </g>
+  <rect x="917" y="322" width="188" height="28" rx="14" fill="#121924" stroke="#bcc9e0" stroke-opacity=".12"/>
+  <text x="1011" y="340" fill="#b8c4d8" font-family="DejaVu Sans,Arial,sans-serif" text-anchor="middle" font-size="11" letter-spacing="1.5">NATIVE · x86_64</text>
+</svg>

@@ -1,0 +1,20 @@
+{
+  "name": "radmir-standalone",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Independent RADMIR launcher for Linux",
+  "type": "module",
+  "scripts": {
+    "dev": "tauri dev",
+    "build:runner": "python3 runner/build.py",
+    "build:appimage": "npm run build:runner && tauri build --bundles appimage",
+    "check:frontend": "node --check frontend/js/app.js && node --check frontend/js/api.js && node --check frontend/js/mock.js && node --check frontend/js/state.js && node --check frontend/js/ui.js && node --check frontend/js/format.js",
+    "test": "npm run check:frontend && node --test tests/*.test.js",
+    "build:deb": "npm run build:runner && tauri build --bundles deb",
+    "build:release": "npm run build:runner && tauri build --bundles appimage,deb"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  },
+  "license": "Apache-2.0"
+}

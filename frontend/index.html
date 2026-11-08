@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Standalone launcher interface">
+  <title>RADMIR — игровой launcher</title>
+  <link rel="icon" href="./assets/logo.svg">
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <link rel="stylesheet" href="./styles/responsive.css">
+  <link rel="stylesheet" href="./styles/fidelity.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">К основному содержимому</a>
+
+  <svg class="sr-only" aria-hidden="true">
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08A1.7 1.7 0 0 0 8.95 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15 1.7 1.7 0 0 0 3.08 14H3v-4h.08A1.7 1.7 0 0 0 4.6 8.95a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6 1.7 1.7 0 0 0 10 3.08V3h4v.08A1.7 1.7 0 0 0 15.05 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9 1.7 1.7 0 0 0 20.92 10H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"/></symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="icon-square" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-forum" viewBox="0 0 24 24"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3v-6a3 3 0 0 1-1-2V6a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3Z"/><path d="M7 8h9M7 12h6"/></symbol>
+    <symbol id="icon-support" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 1 1 4.2 2c-1 .7-1.7 1.2-1.7 2.5M12 17h.01"/></symbol>
+    <symbol id="icon-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+    <symbol id="icon-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M18.5 9A7 7 0 0 0 6 6.5L4 9m2 6a7 7 0 0 0 12 2.5l2-2.5"/></symbol>
+    <symbol id="icon-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3m6 0h4"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 20h16"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M10.3 4.1 2.6 18a2 2 0 0 0 1.8 3h15.2a2 2 0 0 0 1.8-3L13.7 4.1a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4m0 4h.01"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M21 8.2a2.7 2.7 0 0 0-1.9-1.9C17.4 5.8 12 5.8 12 5.8s-5.4 0-7.1.5A2.7 2.7 0 0 0 3 8.2 28 28 0 0 0 2.6 12 28 28 0 0 0 3 15.8a2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.1.5 7.1.5s5.4 0 7.1-.5a2.7 2.7 0 0 0 1.9-1.9 28 28 0 0 0 .4-3.8 28 28 0 0 0-.4-3.8Z"/><path d="m10 9 5 3-5 3Z"/></symbol>
+    <symbol id="icon-telegram" viewBox="0 0 24 24"><path d="m21 3-7.5 18-4-7-7-3.5Z"/><path d="M9.5 14 21 3m-11.5 11 .2 5 2.8-3.2"/></symbol>
+  </svg>
+
+  <div class="app-shell" id="app" aria-busy="true">
+    <aside class="rail" aria-label="Основная навигация">
+      <button class="brand" type="button" data-view="home" aria-label="RADMIR — на главную">
+        <img class="brand__mark" src="./assets/logo.svg" alt="">
+      </button>
+      <nav class="rail__nav" aria-label="Разделы">
+        <button class="rail-button is-active" id="nav-home" type="button" data-view="home" aria-label="Главная" aria-current="page" title="Главная">
+          <svg class="icon" aria-hidden="true"><use href="#icon-home"/></svg>
+        </button>
+        <button class="rail-button" id="nav-settings" type="button" data-view="settings" aria-label="Настройки" title="Настройки">
+          <svg class="icon" aria-hidden="true"><use href="#icon-settings"/></svg>
+        </button>
+      </nav>
+      <div class="rail__spacer"></div>
+      <span class="demo-badge rail__demo" id="demo-badge" hidden>ДЕМО</span>
+    </aside>
+
+    <aside class="sidebar" aria-label="Профиль и серверы">
+      <section class="profile" aria-labelledby="profile-label">
+        <h2 class="eyebrow profile__heading" id="profile-label">Профиль игрока</h2>
+        <div class="field field--nickname">
+          <label class="sr-only" for="nickname">Никнейм</label>
+          <input id="nickname" name="nickname" type="text" minlength="3" maxlength="20" pattern="[A-Za-z_]{3,20}" autocomplete="off" spellcheck="false" placeholder="Ваш никнейм" aria-describedby="nickname-hint" disabled>
+          <span class="profile__status" id="profile-status" aria-hidden="true"></span>
+        </div>
+        <p class="field-hint" id="nickname-hint">ⓘ Name_Surname · 3–20 символов</p>
+      </section>
+
+      <section class="servers" aria-labelledby="servers-label">
+        <div class="section-heading">
+          <h2 class="eyebrow" id="servers-label">Серверы</h2>
+          <span class="section-heading__count" id="server-count">—</span>
+        </div>
+        <ul class="server-list" id="server-list" aria-label="Доступные серверы">
+          <li class="server-skeleton skeleton"></li>
+          <li class="server-skeleton skeleton"></li>
+          <li class="server-skeleton skeleton"></li>
+        </ul>
+        <div class="empty-state" id="servers-empty" hidden>
+          <svg class="icon empty-state__icon" aria-hidden="true"><use href="#icon-server"/></svg>
+          <p>Серверы не настроены</p>
+          <span>Проверьте адрес manifest в настройках.</span>
+        </div>
+      </section>
+
+      <div id="sidebar-settings" hidden></div>
+      <div class="online-total"><span>ИГРОКОВ ОНЛАЙН</span><strong id="online-total">—</strong></div>
+      <footer class="sidebar__footer">
+        <button class="footer-link" id="forum-button" type="button">
+          <svg class="icon icon--small" aria-hidden="true"><use href="#icon-forum"/></svg>Форум
+        </button>
+        <button class="footer-link" id="support-button" type="button">
+          <svg class="icon icon--small" aria-hidden="true"><use href="#icon-support"/></svg>Поддержка
+        </button>
+        <p class="version muted">RADMIR / v0.1.1 <span id="build-label"></span></p>
+      </footer>
+    </aside>
+
+    <main class="main" id="main-content" tabindex="-1">
+      <div class="drag-region" data-tauri-drag-region aria-hidden="true"></div>
+      <div class="window-controls" aria-label="Управление окном">
+        <button class="window-button" id="minimize-button" type="button" aria-label="Свернуть окно" title="Свернуть">
+          <svg class="icon icon--small" aria-hidden="true"><use href="#icon-minus"/></svg>
+        </button>
+        <button class="window-button" id="maximize-button" type="button" aria-label="Развернуть или восстановить окно" title="Развернуть">
+          <svg class="icon icon--small" aria-hidden="true"><use href="#icon-square"/></svg>
+        </button>
+        <button class="window-button window-button--close" id="close-button" type="button" aria-label="Закрыть окно" title="Закрыть">
+          <svg class="icon icon--small" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </div>
+
+      <section class="error-banner" id="global-error" role="alert" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#icon-alert"/></svg>
+        <div class="error-banner__copy">
+          <strong>Что-то пошло не так</strong>
+          <p id="global-error-message"></p>
+        </div>
+        <button class="button button--small button--outline" id="global-retry" type="button">
+          <svg class="icon icon--small" aria-hidden="true"><use href="#icon-refresh"/></svg>Повторить
+        </button>
+        <button class="icon-button" id="error-dismiss" type="button" aria-label="Скрыть ошибку">
+          <svg class="icon icon--small" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </section>
+
+      <section class="boot-screen" id="boot-screen" aria-label="Загрузка launcher">
+        <span class="eyebrow">Подключаемся к локальному backend</span>
+        <div class="boot-skeleton boot-skeleton--wide skeleton"></div>
+        <div class="boot-skeleton skeleton"></div>
+        <div class="boot-skeleton boot-skeleton--short skeleton"></div>
+        <p class="muted" id="boot-message">Получаем настройки и список серверов…</p>
+      </section>
+
+      <div class="main__content" id="loaded-content" hidden>
+        <section class="page page--home" id="page-home" aria-labelledby="news-title">
+          <div class="hero" id="news-carousel" tabindex="0" aria-roledescription="carousel" aria-label="Новости и инструкции launcher">
+            <div class="hero__art" id="news-art" aria-hidden="true">
+              <div class="art-sun"></div>
+              <div class="art-mountain art-mountain--far"></div>
+              <div class="art-mountain art-mountain--near"></div>
+              <div class="art-road"></div>
+              <div class="art-grid"></div>
+              <span class="art-orb art-orb--one"></span>
+              <span class="art-orb art-orb--two"></span>
+            </div>
+            <img id="news-image" class="hero-media" alt="" hidden>
+            <video id="news-video" class="hero-media" autoplay muted loop playsinline preload="metadata" hidden></video>
+            <label class="media-volume">♫ <input id="news-volume" type="range" min="0" max="100" value="0" aria-label="Громкость видео"></label>
+            <div class="hero__shade" aria-hidden="true"></div>
+            <article class="hero__content" aria-live="polite">
+              <div class="news-meta">
+                <span class="news-tag">RADMIR / ИНФО</span>
+                <time class="news-date" id="news-date"></time>
+              </div>
+              <h1 class="hero__title" id="news-title">Первый запуск</h1>
+              <p class="hero__summary" id="news-summary"></p>
+              <button class="button button--outline hero__more" id="news-more" type="button">
+                Подробнее<svg class="icon icon--small" aria-hidden="true"><use href="#icon-arrow"/></svg>
+              </button>
+            </article>
+            <div class="hero__bottom">
+              <div class="slider-controls">
+                <button class="slider-arrow" id="news-previous" type="button" aria-label="Предыдущая новость">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+                </button>
+                <div class="slider-dots" id="news-dots" aria-label="Выбор новости"></div>
+                <button class="slider-arrow" id="news-next" type="button" aria-label="Следующая новость">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                </button>
+              </div>
+              <div class="socials" aria-label="Внешние ресурсы">
+                <button class="social-button" type="button" data-url="https://vk.com/radmircrmp" aria-label="Открыть VK"><span aria-hidden="true">VK</span></button>
+                <button class="social-button" type="button" data-url="https://youtube.com/@radmirgames?si=wqQ5Lyc5bvLqS67X" aria-label="Открыть YouTube">
+                  <svg class="icon icon--small" aria-hidden="true"><use href="#icon-youtube"/></svg><span>YouTube</span>
+                </button>
+                <button class="social-button" type="button" data-url="https://t.me/hassleonline" aria-label="Открыть Telegram">
+                  <svg class="icon icon--small" aria-hidden="true"><use href="#icon-telegram"/></svg><span>Telegram</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <section class="home-lower" aria-labelledby="game-state-label">
+            <div class="game-state">
+              <div class="game-state__heading">
+                <span class="status-light" id="game-status-light" aria-hidden="true"></span>
+                <div>
+                  <h2 class="eyebrow" id="game-state-label">Подготовка игры</h2>
+                  <p class="game-state__message" id="game-status-message" role="status">Ожидание данных…</p>
+                </div>
+                <span class="build-chip" id="build-chip" hidden></span>
+              </div>
+
+              <div class="progress-card" id="progress-card" hidden>
+                <div class="progress-card__topline">
+                  <span id="progress-phase">Подготовка</span>
+                  <strong id="progress-percent">0%</strong>
+                </div>
+                <progress class="progress-bar" id="progress-bar" max="100" value="0" aria-label="Прогресс подготовки"></progress>
+                <progress class="progress-bar" id="progress-indeterminate" aria-label="Установка PortProton" hidden></progress>
+                <p class="progress-file mono" id="progress-file"></p>
+                <dl class="progress-stats">
+                  <div><dt>Данные</dt><dd id="progress-bytes">—</dd></div>
+                  <div><dt>Файлы</dt><dd id="progress-files">—</dd></div>
+                  <div><dt>Скорость</dt><dd id="progress-speed">—</dd></div>
+                </dl>
+                <button class="button button--small button--ghost" id="cancel-operation" type="button">Остановить подготовку</button>
+                <p class="field-hint">Подготовка продолжится в фоне, если закрыть окно.</p>
+              </div>
+
+              <div class="result-details" id="result-details" hidden>
+                <span id="result-build"></span>
+                <span id="result-files"></span>
+              </div>
+
+              <div class="process-card" id="process-card" hidden>
+                <div>
+                  <span class="eyebrow" id="process-label">Процесс запущен</span>
+                  <p class="process-card__detail mono" id="process-detail"></p>
+                </div>
+                <button class="button button--small button--ghost" id="logs-button" type="button">
+                  <svg class="icon icon--small" aria-hidden="true"><use href="#icon-terminal"/></svg>Логи
+                </button>
+              </div>
+            </div>
+
+            <div class="play-zone">
+              <button class="install-button" id="install-portproton" type="button" hidden>
+                <svg class="icon icon--small" aria-hidden="true"><use href="#icon-download"/></svg>Установить PortProton
+              </button>
+              <button class="play-button" id="play-button" type="button" disabled>
+                <span class="bonus-badge" id="bonus-badge" hidden></span>
+                <span id="play-label">ИГРАТЬ</span>
+                <svg class="icon" aria-hidden="true"><use href="#icon-play"/></svg>
+              </button>
+              <p class="play-hint" id="play-hint">Сначала дождитесь готовности файлов</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="page page--settings" id="page-settings" aria-labelledby="settings-title" hidden>
+          <header class="settings-header">
+            <div>
+              <span class="eyebrow">Конфигурация</span>
+              <h1 id="settings-title">Настройки</h1>
+              <p>Локальные параметры загрузки и запуска.</p>
+            </div>
+            <span class="save-status" id="save-status" role="status"></span>
+          </header>
+
+          <form id="settings-form">
+            <div class="settings-grid">
+              <div class="settings-column">
+                <section class="settings-card" aria-labelledby="game-path-title">
+                  <div class="settings-card__heading">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-folder"/></svg>
+                    <div><h2 id="game-path-title">Файлы игры</h2><p>Расположение локальной сборки</p></div>
+                  </div>
+                  <label class="checkbox-row" for="auto-game-path">
+                    <input id="auto-game-path" name="auto_game_path" type="checkbox">
+                    <span class="checkbox-control" aria-hidden="true"><svg class="icon icon--small"><use href="#icon-check"/></svg></span>
+                    <span>Определять путь автоматически</span>
+                  </label>
+                  <div class="field">
+                    <label for="game-path">Каталог игры</label>
+                    <input id="game-path" name="game_path_override" type="text" autocomplete="off" spellcheck="false" readonly>
+                  </div>
+                  <p class="field-hint" id="resolved-path-hint">Автоматический путь задаёт backend.</p>
+                  <button class="button button--outline button--full" id="verify-button" type="button">
+                    <svg class="icon icon--small" aria-hidden="true"><use href="#icon-refresh"/></svg>Проверка файлов
+                  </button>
+                </section>
+
+                <section class="settings-card" aria-labelledby="portproton-title">
+                  <div class="settings-card__heading">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-terminal"/></svg>
+                    <div><h2 id="portproton-title">PortProton</h2><p>Среда запуска Windows-игры</p></div>
+                  </div>
+                  <div class="portproton-status" id="portproton-status">
+                    <span class="status-light" id="portproton-light" aria-hidden="true"></span>
+                    <span id="portproton-message">Проверяем установку…</span>
+                  </div>
+                </section>
+              </div>
+
+              <section class="settings-card graphics" aria-labelledby="graphics-title">
+                <div class="settings-card__heading">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-settings"/></svg>
+                  <div><h2 id="graphics-title">Графика</h2><p>Иллюстрация пресетов · не скриншот игры</p></div>
+                </div>
+                <div class="comparison" id="graphics-comparison" aria-label="Сравнение графики">
+                  <img id="graphics-default" src="./assets/graphics/2_default.svg" alt="Стандартная графика">
+                  <img id="graphics-advanced" class="comparison__advanced" src="./assets/graphics/2_advanced.svg" alt="Улучшенная графика">
+                  <span class="comparison__line"></span>
+                  <span class="comparison__label comparison__label--left">Улучшенная графика</span>
+                  <span class="comparison__label comparison__label--right">Стандартная графика</span>
+                  <input id="graphics-split" type="range" min="0" max="100" value="50" aria-label="Разделитель сравнения графики">
+                </div>
+                <div class="graphics-thumbnails" id="graphics-thumbnails" aria-label="Сцены сравнения"></div>
+                <div class="graphics__choices" role="group" aria-label="Графический профиль">
+                  <button class="preset-button" type="button" data-graphics="standard" aria-pressed="false">
+                    Стандартная графика
+                  </button>
+                  <button class="preset-button" type="button" data-graphics="enhanced" aria-pressed="false">
+                    Улучшенная графика
+                  </button>
+                </div>
+              </section>
+            </div>
+
+            <details class="advanced">
+              <summary><span><span class="eyebrow">Для опытных</span>Расширенные параметры</span><span class="advanced__hint">manifest, сеть и производительность</span></summary>
+              <section class="settings-card" aria-labelledby="runtime-title">
+                <h2 id="runtime-title">PortProton</h2>
+                <div class="field">
+                  <label for="wine-build">Wine / Proton</label>
+                  <select id="wine-build" name="wine_build" aria-describedby="wine-hint"></select>
+                  <p class="field-hint" id="wine-hint">Выбранная версия сохраняется. Отсутствующая сборка будет загружена и проверена.</p>
+                </div>
+                <div class="field">
+                  <label for="graphics-api">3D API</label>
+                  <select id="graphics-api" name="graphics_api" aria-describedby="graphics-api-hint"></select>
+                  <p class="field-hint" id="graphics-api-hint"></p>
+                </div>
+                <p class="field-hint" id="runtime-environment"></p>
+                <button class="button button--outline" id="suggested-api" type="button" hidden></button>
+                <button class="button button--outline" id="prepare-installation" type="button">Подготовить среду и игру</button>
+                <button class="button button--ghost" id="dependency-plan-button" type="button">Проверить системные пакеты</button>
+                <section id="dependency-plan" aria-live="polite" hidden>
+                  <p class="field-hint" id="dependency-summary"></p>
+                  <pre id="dependency-changes"></pre>
+                  <button class="button button--outline" id="install-dependencies" type="button">Установить с подтверждением администратора</button>
+                </section>
+              </section>
+              <div class="advanced-grid">
+                <div class="field advanced-grid__wide">
+                  <label for="manifest-url">Manifest URL</label>
+                  <input id="manifest-url" name="manifest_url" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="Автоматически: официальный CDN RADMIR">
+                </div>
+                <div class="field advanced-grid__wide">
+                  <label for="download-base-url">Download base URL</label>
+                  <input id="download-base-url" name="download_base_url" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://…/files/">
+                </div>
+                <div class="field advanced-grid__wide">
+                  <label for="portproton-path">Путь к PortProton</label>
+                  <input id="portproton-path" name="portproton_path" type="text" autocomplete="off" spellcheck="false" placeholder="Автоматически">
+                </div>
+                <div class="field advanced-grid__wide">
+                  <label for="installer-sha256">SHA256 установщика</label>
+                  <input id="installer-sha256" name="installer_sha256" type="text" class="mono" minlength="64" maxlength="64" pattern="[A-Fa-f0-9]{64}" autocomplete="off" spellcheck="false" aria-describedby="sha-hint" placeholder="64 шестнадцатеричных символа">
+                  <p class="field-hint" id="sha-hint">Поле старой установки. Новая подготовка использует проверенные суммы каждого компонента.</p>
+                </div>
+                <label class="checkbox-row advanced-grid__wide" for="auto-install-portproton">
+                  <input id="auto-install-portproton" name="auto_install_portproton" type="checkbox">
+                  <span class="checkbox-control" aria-hidden="true"><svg class="icon icon--small"><use href="#icon-check"/></svg></span>
+                  <span>Автоматически устанавливать PortProton</span>
+                </label>
+                <div class="field">
+                  <label for="download-concurrency">Потоки загрузки <span class="muted">1–16</span></label>
+                  <input id="download-concurrency" name="download_concurrency" type="number" min="1" max="16" step="1" inputmode="numeric">
+                </div>
+                <div class="field">
+                  <label for="hash-concurrency">Потоки хеширования <span class="muted">1–32</span></label>
+                  <input id="hash-concurrency" name="hash_concurrency" type="number" min="1" max="32" step="1" inputmode="numeric">
+                </div>
+              </div>
+            </details>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="dialog" id="info-dialog" aria-labelledby="dialog-title">
+    <form method="dialog">
+      <button class="dialog__close icon-button" value="close" aria-label="Закрыть диалог">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+      <span class="eyebrow" id="dialog-eyebrow">RADMIR / ИНФО</span>
+      <h2 id="dialog-title">Подробнее</h2>
+      <div class="dialog__body" id="dialog-body"></div>
+      <button class="button button--primary" value="close">Понятно</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

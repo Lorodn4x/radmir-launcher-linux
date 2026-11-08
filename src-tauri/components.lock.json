@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "script_commit": "6338b982013be64430d671124f3fc47f1bfd709b",
+  "components": [
+    {
+      "id": "scripts",
+      "version": "2481",
+      "url": "https://codeload.github.com/Castro-Fidel/PortWINE/tar.gz/6338b982013be64430d671124f3fc47f1bfd709b",
+      "sha256": "0fc5e10d9da375a78fad4b43cd291acfc3023bef24f0ada7c256509c5a5b9a9d",
+      "size": 3393985,
+      "target": "data",
+      "archive_root": "PortWINE-6338b982013be64430d671124f3fc47f1bfd709b/data_from_portwine",
+      "mirrors": [
+        "https://github.com/Castro-Fidel/PortWINE/archive/6338b982013be64430d671124f3fc47f1bfd709b.tar.gz"
+      ]
+    },
+    {
+      "id": "proton",
+      "version": "PROTON_LG_10-28",
+      "url": "https://github.com/Castro-Fidel/wine_builds/releases/download/PROTON_LG_10-28/PROTON_LG_10-28.tar.xz",
+      "sha256": "ad270e87da367448c2f2915a53fcd41dd40d81f8fb14f2128d5e8ec98d670255",
+      "size": 228536564,
+      "target": "data/dist",
+      "archive_root": "PROTON_LG_10-28",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/PROTON_LG_10-28.tar.xz"
+      ]
+    },
+    {
+      "id": "plugins",
+      "version": "v20",
+      "url": "https://github.com/Castro-Fidel/wine_builds/releases/download/plugins_v20/plugins_v20.tar.xz",
+      "sha256": "5d36a33cd36d2bcd901326d1865adf54892cbb4ca482a38e2c7c4aabde71516b",
+      "size": 199473160,
+      "target": "data/tmp",
+      "archive_root": "plugins_v20",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/plugins_v20.tar.xz"
+      ]
+    },
+    {
+      "id": "libs",
+      "version": "v3.0.20260218",
+      "url": "https://github.com/Castro-Fidel/PortWINE/releases/download/libs_v3.0.20260218/libs_v3.0.20260218.tar.xz",
+      "sha256": "bd67eaf720f487a9b5105cb6d097601a243c8faca205eb1a0cfa309ea33f2760",
+      "size": 187033916,
+      "target": "data/tmp",
+      "archive_root": "libs_v3.0.20260218",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/libs_v3.0.20260218.tar.xz"
+      ]
+    },
+    {
+      "id": "dxvk-2.7.1-509",
+      "version": "dxvk-2.7.1-509",
+      "url": "https://github.com/Castro-Fidel/vulkan/releases/download/dxvk-2.7.1-509/dxvk-2.7.1-509.tar.xz",
+      "sha256": "c982d8e05dac99132c634eaadc34e1d3c4ab1cdc685c013a27890752a52837f0",
+      "size": 6983560,
+      "target": "data/tmp/VULKAN",
+      "archive_root": "dxvk-2.7.1-509",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/dxvk-2.7.1-509.tar.xz"
+      ]
+    },
+    {
+      "id": "vkd3d-proton-1.1-5122",
+      "version": "vkd3d-proton-1.1-5122",
+      "url": "https://github.com/Castro-Fidel/vulkan/releases/download/vkd3d-proton-1.1-5122/vkd3d-proton-1.1-5122.tar.xz",
+      "sha256": "a7e72b9cda96e084568d4ff2e075c90b03d38d562b0d235f6dcc7697cf3b6d32",
+      "size": 4383552,
+      "target": "data/tmp/VULKAN",
+      "archive_root": "vkd3d-proton-1.1-5122",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/vkd3d-proton-1.1-5122.tar.xz"
+      ]
+    },
+    {
+      "id": "dxvk-2.6.2",
+      "version": "dxvk-2.6.2",
+      "url": "https://github.com/Castro-Fidel/vulkan/releases/download/dxvk-2.6.2/dxvk-2.6.2.tar.xz",
+      "sha256": "b4c7cbb6c09fdc2c42104ac9e4377167881d3f9d97b2ff125f36f1c351255ea5",
+      "size": 5326344,
+      "target": "data/tmp/VULKAN",
+      "archive_root": "dxvk-2.6.2",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/dxvk-2.6.2.tar.xz"
+      ]
+    },
+    {
+      "id": "vkd3d-proton-2.14.1",
+      "version": "vkd3d-proton-2.14.1",
+      "url": "https://github.com/Castro-Fidel/vulkan/releases/download/vkd3d-proton-2.14.1/vkd3d-proton-2.14.1.tar.xz",
+      "sha256": "8170e8bd34d47c5607603da2c93737acc19f4ebedc45e02115c282dfc0c36681",
+      "size": 2185220,
+      "target": "data/tmp/VULKAN",
+      "archive_root": "vkd3d-proton-2.14.1",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/vkd3d-proton-2.14.1.tar.xz"
+      ]
+    },
+    {
+      "id": "dxvk-sarek-1.11.0",
+      "version": "dxvk-sarek-1.11.0",
+      "url": "https://github.com/Castro-Fidel/vulkan/releases/download/dxvk-sarek-1.11.0/dxvk-sarek-1.11.0.tar.xz",
+      "sha256": "5f97deb1eeb97ed41d0539264c0ca98e8841f79ec59684f32e7f1ca5c29a109b",
+      "size": 7782356,
+      "target": "data/tmp/VULKAN",
+      "archive_root": "dxvk-sarek-1.11.0",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/dxvk-sarek-1.11.0.tar.xz"
+      ]
+    },
+    {
+      "id": "vkd3d-proton-sarek-2.6.0",
+      "version": "vkd3d-proton-sarek-2.6.0",
+      "url": "https://github.com/Castro-Fidel/vulkan/releases/download/vkd3d-proton-sarek-2.6.0/vkd3d-proton-sarek-2.6.0.tar.xz",
+      "sha256": "edf16d2b37bc77d121d5d81b06b60d3f694e0060c6606e729ceab30de3d27466",
+      "size": 2876912,
+      "target": "data/tmp/VULKAN",
+      "archive_root": "vkd3d-proton-sarek-2.6.0",
+      "mirrors": [
+        "https://cloud.linux-gaming.ru/portproton/vkd3d-proton-sarek-2.6.0.tar.xz"
+      ]
+    }
+  ]
+}
